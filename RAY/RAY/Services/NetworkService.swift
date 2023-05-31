@@ -10,7 +10,7 @@ import Foundation
 typealias NetworkCallback = ((Result<Data, Error>) -> Void)?
 
 protocol NetworkServiseProtocol {
-    func createTask(with url: URL, then callback: NetworkCallback) -> URLSessionDataTask
+    func createTask(with url: URL, then callback: NetworkCallback) -> URLSessionDataTaskProtocol
 }
 
 final class NetworkServise: NetworkServiseProtocol {
@@ -20,14 +20,18 @@ final class NetworkServise: NetworkServiseProtocol {
     
     private init() {
         let configure = URLSessionConfiguration.ephemeral
-        configure.urlCache = URLCache(memoryCapacity: 1024 * 1024 * 10, diskCapacity: 0)
+        if #available(iOS 13.0, *) {
+            configure.urlCache = URLCache(memoryCapacity: 1024 * 1024 * 10, diskCapacity: 0)
+        } else {
+            configure.urlCache = .init(memoryCapacity: 1024 * 1024 * 10, diskCapacity: 0, diskPath: nil)
+        }
         configure.httpMaximumConnectionsPerHost = 1
         configure.waitsForConnectivity = false
         configure.timeoutIntervalForResource = 60
         self.session = URLSession(configuration: configure)
     }
     
-    func createTask(with url: URL, then callback: NetworkCallback) -> URLSessionDataTask {
+    func createTask(with url: URL, then callback: NetworkCallback) -> URLSessionDataTaskProtocol {
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
                 print("Image download error: ", error)

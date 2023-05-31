@@ -7,7 +7,13 @@
 
 import Foundation
 
-class FileSevice {
+protocol FileServiceProtocol {
+    func getPathToCacheDirectory() -> URL
+    func savePicToCache(_ data: Data)
+    func deletePic(with url: URL)
+}
+
+class FileSevice: FileServiceProtocol {
     
     let fm = FileManager.default
     

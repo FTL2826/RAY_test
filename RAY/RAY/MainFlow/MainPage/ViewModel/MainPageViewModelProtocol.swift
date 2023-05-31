@@ -13,6 +13,6 @@ protocol MainPageViewModelProtocol {
     var networkError: Dynamic<Error> { get }
     
     func submitPressed(_ text: String) -> Result<URL, MainPageViewModel.Errors>
-    func dowloadPicture(from url: URL, with text: String)
+    func dowloadPicture(from url: URL)
     func addFavorite()
 }

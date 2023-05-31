@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "FBA78FED-867A-4F97-B4A8-84655E8C721B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RAY.xcodeproj",
+        "identifier" : "DB7303822A27CEC600C55FB4",
+        "name" : "RAYTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RAY.xcodeproj",
+        "identifier" : "DBAA28302A27E007009AFEA5",
+        "name" : "RAYUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

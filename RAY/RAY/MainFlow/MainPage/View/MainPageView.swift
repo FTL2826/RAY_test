@@ -12,6 +12,7 @@ final class MainPageView: UIView {
         let tf = UITextField()
         tf.placeholder = "Query"
         tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.textColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
         tf.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         tf.layer.cornerRadius = 16
         tf.layer.borderColor = UIColor.gray.cgColor
@@ -71,7 +72,7 @@ final class MainPageView: UIView {
     }
     
     private func setupUI() {
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = UIColor(named: "Background")
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         
         addSubview(textField)

@@ -17,8 +17,8 @@ final class VCFactory {
         let vc = MainPageVC(vm: vm)
         vc.tabBarItem = UITabBarItem(
             title: "Generate picture",
-            image: UIImage(systemName: "house"),
-            selectedImage: UIImage(systemName: "house.fill"))
+            image: UIImage(named: "house"),
+            selectedImage: UIImage(named: "house.fill"))
         
         return vc
     }
@@ -28,8 +28,8 @@ final class VCFactory {
         let vc = FavoritesVC(vm: vm)
         vc.tabBarItem = UITabBarItem(
             title: "Favorites",
-            image: UIImage(systemName: "star"),
-            selectedImage: UIImage(systemName: "star.fill"))
+            image: UIImage(named: "star"),
+            selectedImage: UIImage(named: "star.fill"))
         
         return vc
     }

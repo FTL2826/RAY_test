@@ -10,8 +10,8 @@ import Foundation
 final class MainPageViewModel: MainPageViewModelProtocol {
     
     let networkService: NetworkServiseProtocol
-    let fileService: FileSevice
-    let favoriteEnviroment: FavoriteEnviroment
+    let fileService: FileServiceProtocol
+    let favoriteEnviroment: FavoriteEnviromentProtocol
     
     var pictureData: Dynamic<Data> = Dynamic(Data())
     var networkError: Dynamic<Error> = Dynamic(Errors.invalidPicture)
@@ -20,9 +20,10 @@ final class MainPageViewModel: MainPageViewModelProtocol {
     enum Errors: Error {
         case invalidURL
         case invalidPicture
+        case alreadyInFavorites
     }
     
-    init(_ networkService: NetworkServiseProtocol, _ fileService: FileSevice, _ favoriteEnviroment: FavoriteEnviroment) {
+    init(_ networkService: NetworkServiseProtocol, _ fileService: FileServiceProtocol, _ favoriteEnviroment: FavoriteEnviromentProtocol) {
         self.networkService = networkService
         self.fileService = fileService
         self.favoriteEnviroment = favoriteEnviroment
@@ -30,10 +31,13 @@ final class MainPageViewModel: MainPageViewModelProtocol {
     
     func submitPressed(_ text: String) -> Result<URL, Errors> {
         guard let url = createURL(text) else { return .failure(.invalidURL) }
+        if favoriteEnviroment.isQueryFavorite(text) {
+            return .failure(.alreadyInFavorites)
+        }
         return .success(url)
     }
     
-    func dowloadPicture(from url: URL, with text: String) {
+    func dowloadPicture(from url: URL) {
         let task = networkService.createTask(with: url) {[weak self] result in
             switch result {
             case .success(let data):

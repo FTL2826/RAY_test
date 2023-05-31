@@ -7,22 +7,39 @@
 
 import Foundation
 
-class FavoriteEnviroment {
+protocol FavoriteEnviromentProtocol {
+    
+    func isQueryFavorite(_ text: String) -> Bool
+    func append(favorite: Favorite)
+    func element(for index: Int) -> Favorite
+    func delete(for index: Int)
+    func size() -> Int
+    func saveDeqToJSON()
+    func loadDeqFromJSON()
+}
+
+class FavoriteEnviroment: FavoriteEnviromentProtocol {
     
     static let instance: FavoriteEnviroment = FavoriteEnviroment()
     
-    var fileService: FileSevice = .init()
+    var fileService: FileServiceProtocol
     
     private var favorites: Deque<Favorite> = .init()
-    private var favoritesSet: Set<Favorite> = .init()
+    private var favoritesSet: Set<String> = .init()
     private var limit = 5
     private let jsonName = "Favorites.json"
     
-    private init() {}
+    private init() {
+        self.fileService = FileSevice()
+    }
+    
+    func isQueryFavorite(_ text: String) -> Bool{
+        favoritesSet.contains(text)
+    }
     
     func append(favorite: Favorite) {
-        if !favoritesSet.contains(favorite) {
-            favoritesSet.insert(favorite)
+        if !favoritesSet.contains(favorite.query) {
+            favoritesSet.insert(favorite.query)
             favorites.enqueueRear(favorite)
             while favorites.size > 5 {
                 favorites.dequeueFront()
@@ -40,7 +57,7 @@ class FavoriteEnviroment {
     
     func delete(for index: Int) {
         guard let item = favorites.deleteElement(for: index) else { return }
-        favoritesSet.remove(item)
+        favoritesSet.remove(item.query)
     }
     
     func size() -> Int {
@@ -78,7 +95,7 @@ class FavoriteEnviroment {
             
             for item in containerForLoading {
                 favorites.enqueueRear(item)
-                favoritesSet.insert(item)
+                favoritesSet.insert(item.query)
             }
         } catch let error {
             print("Log error in loading & decoding data from JSON: \(error)")

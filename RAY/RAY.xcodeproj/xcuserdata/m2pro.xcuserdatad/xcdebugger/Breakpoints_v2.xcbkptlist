@@ -14,8 +14,8 @@
             filePath = "RAY/Services/FavoriteEnviroment.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "loadDeqFromJSON()"
             landmarkType = "7">
             <Locations>
@@ -62,9 +62,9 @@
             filePath = "RAY/Services/FavoriteEnviroment.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "append(favorite:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "isQueryFavorite(_:)"
             landmarkType = "7">
             <Locations>
                <Location

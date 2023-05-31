@@ -48,7 +48,7 @@ class FavoritesTableViewCell: UITableViewCell {
             savedImage.image = UIImage(data: favorite.pictureData)
         } catch let error {
             print("Error with image in cell: \(error)")
-            savedImage.image = UIImage(systemName: "questionmark")
+            savedImage.image = UIImage(named: "questionmark")
         }
         
     }

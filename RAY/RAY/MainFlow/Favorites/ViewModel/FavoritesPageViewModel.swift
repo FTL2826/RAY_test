@@ -8,10 +8,10 @@
 import Foundation
 
 class FavoritesPageViewModel: FavoritesPageViewModelProtocol {
-    let favoriteEnviroment: FavoriteEnviroment
+    let favoriteEnviroment: FavoriteEnviromentProtocol
     
     init(
-        _ favoriteEnviroment: FavoriteEnviroment
+        _ favoriteEnviroment: FavoriteEnviromentProtocol
     ) {
         self.favoriteEnviroment = favoriteEnviroment
     }
@@ -24,12 +24,7 @@ class FavoritesPageViewModel: FavoritesPageViewModelProtocol {
         favoriteEnviroment.element(for: index)
     }
     
-    func delete(index: Int) -> Result<Bool, Error> {
-        do {
-            try favoriteEnviroment.delete(for: index)
-        } catch let error {
-            return .failure(error)
-        }
-        return .success(true)
+    func delete(index: Int){
+        favoriteEnviroment.delete(for: index)
     }
 }

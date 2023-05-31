@@ -44,7 +44,7 @@ class FavoritesVC: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(named: "Background")
         
         view.addSubview(tableView)
         
@@ -76,20 +76,9 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let result = vm.delete(index: indexPath.row)
-            switch result {
-            case .success(_):
-                tableView.deleteRows(at: [indexPath], with: .fade)
-//                tableView.reloadData()
-            case .failure(let failure):
-                let ac = UIAlertController(
-                    title: "Error occured!",
-                    message: "Please try again. \nError: \(failure.localizedDescription)",
-                    preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Ok", style: .default))
-                present(ac, animated: true)
-            }
-            
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
     }
     
 }

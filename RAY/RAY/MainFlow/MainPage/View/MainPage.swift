@@ -71,10 +71,20 @@ class MainPageVC: UIViewController {
         
         switch result {
         case .success(let url):
-            vm.dowloadPicture(from: url, with: text)
+            vm.dowloadPicture(from: url)
         case .failure(let failure):
             let title = alertTitle
-            let message = "Please try again. \nError: \(failure.localizedDescription)"
+            
+            let message: String
+            switch failure {
+            case .invalidURL:
+                message = "Please try again. \nError: \(failure.localizedDescription)"
+            case .invalidPicture:
+                message = "Please try again. \nError: \(failure.localizedDescription)"
+            case .alreadyInFavorites:
+                message = "Picture already in favorites, delete it from there first"
+            }
+            
             showAlert(with: title, and: message)
         }
     }

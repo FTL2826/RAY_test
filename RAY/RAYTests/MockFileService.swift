@@ -8,7 +8,7 @@
 import Foundation
 @testable import RAY
 
-class MockFileService: FileServiceProtocol {
+final class MockFileService: FileServiceProtocol {
     func getPathToCacheDirectory() -> URL {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let cacheDirectoryPath = urls[0]

@@ -8,7 +8,7 @@
 import Foundation
 @testable import RAY
 
-class MockNetworkService: NetworkServiseProtocol {
+final class MockNetworkService: NetworkServiseProtocol {
     
     class Task: URLSessionDataTaskProtocol {
         func resume() {

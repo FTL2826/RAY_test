@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FavoritesPageViewModel: FavoritesPageViewModelProtocol {
+final class FavoritesPageViewModel: FavoritesPageViewModelProtocol {
     let favoriteEnviroment: FavoriteEnviromentProtocol
     
     init(

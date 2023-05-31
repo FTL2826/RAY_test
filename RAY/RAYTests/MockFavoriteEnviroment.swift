@@ -8,8 +8,10 @@
 import Foundation
 @testable import RAY
 
-class MockFavoriteEnviroment: FavoriteEnviromentProtocol {
-    
+final class MockFavoriteEnviroment: FavoriteEnviromentProtocol {
+    func isQueryFavorite(_ text: String) -> Bool {
+        return false
+    }
     
     func append(favorite: RAY.Favorite) {
     

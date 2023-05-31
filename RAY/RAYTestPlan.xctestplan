@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "FBA78FED-867A-4F97-B4A8-84655E8C721B",
+      "id" : "A4DB1CC0-F7A0-4E31-91DE-14F73DE276BE",
       "name" : "Configuration 1",
       "options" : {
 
@@ -9,7 +9,7 @@
     }
   ],
   "defaultOptions" : {
-
+    "testTimeoutsEnabled" : true
   },
   "testTargets" : [
     {
@@ -21,7 +21,6 @@
       }
     },
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:RAY.xcodeproj",
         "identifier" : "DBAA28302A27E007009AFEA5",

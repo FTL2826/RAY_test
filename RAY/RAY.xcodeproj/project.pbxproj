@@ -85,10 +85,10 @@
 		DB73038E2A27D32B00C55FB4 /* MockFavoriteEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFavoriteEnviroment.swift; sourceTree = "<group>"; };
 		DB7303902A27D42F00C55FB4 /* MockFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFileService.swift; sourceTree = "<group>"; };
 		DB7303932A27D90B00C55FB4 /* URLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTask.swift; sourceTree = "<group>"; };
-		DBAA281D2A27DB80009AFEA5 /* RAY.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RAY.xctestplan; sourceTree = "<group>"; };
 		DBAA28312A27E007009AFEA5 /* RAYUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RAYUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAA28332A27E007009AFEA5 /* RAYUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAYUITests.swift; sourceTree = "<group>"; };
 		DBAA28352A27E007009AFEA5 /* RAYUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAYUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DBD801F22A27F7ED00474D15 /* RAYTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = RAYTestPlan.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +119,9 @@
 		50099EFF2A2500F400F5218D = {
 			isa = PBXGroup;
 			children = (
+				DBD801F22A27F7ED00474D15 /* RAYTestPlan.xctestplan */,
 				50099F1F2A25012000F5218D /* Task1.playground */,
 				50099F0A2A2500F400F5218D /* RAY */,
-				DBAA281D2A27DB80009AFEA5 /* RAY.xctestplan */,
 				DB7303842A27CEC600C55FB4 /* RAYTests */,
 				DBAA28322A27E007009AFEA5 /* RAYUITests */,
 				50099F092A2500F400F5218D /* Products */,

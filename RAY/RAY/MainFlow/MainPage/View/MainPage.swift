@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainPageVC: UIViewController {
+final class MainPageVC: UIViewController {
     
     let mainView = MainPageView()
     let vm: MainPageViewModelProtocol

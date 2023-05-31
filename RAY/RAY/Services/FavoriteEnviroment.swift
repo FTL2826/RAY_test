@@ -18,7 +18,7 @@ protocol FavoriteEnviromentProtocol {
     func loadDeqFromJSON()
 }
 
-class FavoriteEnviroment: FavoriteEnviromentProtocol {
+final class FavoriteEnviroment: FavoriteEnviromentProtocol {
     
     static let instance: FavoriteEnviroment = FavoriteEnviroment()
     

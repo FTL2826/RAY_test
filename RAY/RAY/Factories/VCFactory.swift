@@ -10,7 +10,8 @@ import UIKit
 final class VCFactory {
     
     static func createMainPage() -> UIViewController {
-        let vc = MainPageVC()
+        let vm = MainPageViewModel(NetworkServise.instance, FileSevice())
+        let vc = MainPageVC(vm: vm)
         vc.tabBarItem = UITabBarItem(
             title: "Generate picture",
             image: UIImage(systemName: "house"),

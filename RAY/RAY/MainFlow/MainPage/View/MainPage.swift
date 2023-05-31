@@ -12,6 +12,8 @@ class MainPageVC: UIViewController {
     let mainView = MainPageView()
     let vm: MainPageViewModelProtocol
     
+    let alertTitle: String = "Error ocurred!"
+    
     init(vm: MainPageViewModelProtocol) {
         self.vm = vm
         super.init(nibName: nil, bundle: nil)
@@ -43,7 +45,7 @@ class MainPageVC: UIViewController {
         }
         
         vm.networkError.bind {[weak self] error in
-            let title = "Error ocurred!"
+            guard let title = self?.alertTitle else { return }
             let message = "Please try again. \nError: \(error.localizedDescription)"
             self?.showAlert(with: title, and: message)
         }
@@ -59,7 +61,11 @@ class MainPageVC: UIViewController {
     }
     
     @objc private func favoriteButtonPressed() {
-        vm.addFavorite()
+        do {
+            try vm.addFavorite()
+        } catch let error {
+            showAlert(with: alertTitle, and: "Please try again. \nError: \(error.localizedDescription)")
+        }
     }
     
     @objc private func submitButtonPressed() {
@@ -71,7 +77,7 @@ class MainPageVC: UIViewController {
         case .success(let url):
             vm.dowloadPicture(from: url, with: text)
         case .failure(let failure):
-            let title = "Error ocurred!"
+            let title = alertTitle
             let message = "Please try again. \nError: \(failure.localizedDescription)"
             showAlert(with: title, and: message)
         }

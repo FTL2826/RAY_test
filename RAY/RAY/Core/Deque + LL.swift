@@ -221,4 +221,12 @@ final public class Deque<T> {
         }
     }
     
+    public func element(for index: Int) -> T? {
+        list.node(atIndex: index)?.value
+    }
+    
+    public func deleteElement(for index: Int) -> T? {
+        list.removeNode(atIndex: index)?.value
+    }
+    
 }

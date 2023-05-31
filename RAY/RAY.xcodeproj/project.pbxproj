@@ -149,8 +149,8 @@
 		508DDBDC2A25D54A004414AD /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
-				508DDBDD2A25D55F004414AD /* Favorites */,
 				508DDBD42A25D13B004414AD /* AppCoordinator.swift */,
+				508DDBDD2A25D55F004414AD /* Favorites */,
 				508DDBDB2A25D53D004414AD /* MainPage */,
 			);
 			path = MainFlow;

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Favorite {
+struct Favorite: Codable {
     let query: String
     let urlToPic: URL
 }

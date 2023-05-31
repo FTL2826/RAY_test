@@ -14,5 +14,5 @@ protocol MainPageViewModelProtocol {
     
     func submitPressed(_ text: String) -> Result<URL, MainPageViewModel.Errors>
     func dowloadPicture(from url: URL, with text: String)
-    func addFavorite()
+    func addFavorite() throws
 }

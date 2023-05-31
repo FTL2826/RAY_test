@@ -24,7 +24,8 @@ final class VCFactory {
     }
     
     func createFavouritesVC() -> UIViewController {
-        let vc = FavoritesVC()
+        let vm = FavoritesPageViewModel(FavoriteEnviroment.instance)
+        let vc = FavoritesVC(vm: vm)
         vc.tabBarItem = UITabBarItem(
             title: "Favorites",
             image: UIImage(systemName: "star"),

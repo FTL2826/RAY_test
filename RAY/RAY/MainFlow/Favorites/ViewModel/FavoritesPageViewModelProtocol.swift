@@ -8,5 +8,7 @@
 import Foundation
 
 protocol FavoritesPageViewModelProtocol {
-    
+    func itemsInTable() -> Int
+    func favorite(for index: Int) -> Favorite
+    func delete(index: Int) -> Result<Bool, Error>
 }

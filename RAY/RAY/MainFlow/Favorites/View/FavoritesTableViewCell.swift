@@ -42,9 +42,16 @@ class FavoritesTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ query: String, _ image: UIImage) {
-        self.queryLabel.text = query
-        self.savedImage.image = image
+    func configure(_ favorite: Favorite) {
+        self.queryLabel.text = favorite.query
+        do {
+            let imageData = try Data(contentsOf: favorite.urlToPic)
+            savedImage.image = UIImage(contentsOfFile: favorite.urlToPic.absoluteString)
+        } catch let error {
+            print("Error with image in cell: \(error)")
+            savedImage.image = UIImage(systemName: "questionmark")
+        }
+        
     }
     
     

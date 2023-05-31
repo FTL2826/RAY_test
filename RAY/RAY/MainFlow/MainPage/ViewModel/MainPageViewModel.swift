@@ -46,15 +46,9 @@ final class MainPageViewModel: MainPageViewModelProtocol {
         task.resume()
     }
     
-    func addFavorite() throws {
-        let result = fileService.saveFavoritePic(pictureData.value)
-        switch result {
-        case .success(let savedUrl):
-            let favorite = Favorite(query: lastQuery, urlToPic: savedUrl)
-            favoriteEnviroment.append(favorite: favorite)
-        case .failure(let failure):
-            throw failure
-        }
+    func addFavorite() {
+        let favorite = Favorite(query: lastQuery, pictureData: pictureData.value)
+        favoriteEnviroment.append(favorite: favorite)
         
     }
     

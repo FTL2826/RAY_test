@@ -8,16 +8,96 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3F1C12BD-A5DB-4117-9CB0-5F1F65DCC521"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RAY/Services/FavoriteEnviroment.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "loadDeqFromJSON()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3F1C12BD-A5DB-4117-9CB0-5F1F65DCC521 - 9b6f9d7077d4e964"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RAY.FavoriteEnviroment.loadDeqFromJSON() -&gt; ()"
+                  moduleName = "RAY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m2pro/Documents/Swift/Apps/RAY_test/RAY_test/RAY/RAY/Services/FavoriteEnviroment.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "576">
+               </Location>
+               <Location
+                  uuid = "3F1C12BD-A5DB-4117-9CB0-5F1F65DCC521 - 9b6f9d7077d4e964"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RAY.FavoriteEnviroment.loadDeqFromJSON() -&gt; ()"
+                  moduleName = "RAY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m2pro/Documents/Swift/Apps/RAY_test/RAY_test/RAY/RAY/Services/FavoriteEnviroment.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "464">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDAC0B63-EBC0-4DF0-9DBD-13E115F2A15F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RAY/Services/FavoriteEnviroment.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "append(favorite:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FDAC0B63-EBC0-4DF0-9DBD-13E115F2A15F - 377257464f6b625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RAY.FavoriteEnviroment.append(favorite: RAY.Favorite) -&gt; ()"
+                  moduleName = "RAY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m2pro/Documents/Swift/Apps/RAY_test/RAY_test/RAY/RAY/Services/FavoriteEnviroment.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "FDAC0B63-EBC0-4DF0-9DBD-13E115F2A15F - 377257464f6b625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RAY.FavoriteEnviroment.append(favorite: RAY.Favorite) -&gt; ()"
+                  moduleName = "RAY"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m2pro/Documents/Swift/Apps/RAY_test/RAY_test/RAY/RAY/Services/FavoriteEnviroment.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

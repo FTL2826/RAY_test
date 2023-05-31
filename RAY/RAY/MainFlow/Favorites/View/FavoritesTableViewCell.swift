@@ -43,10 +43,9 @@ class FavoritesTableViewCell: UITableViewCell {
     }
     
     func configure(_ favorite: Favorite) {
-        self.queryLabel.text = favorite.query
+        self.queryLabel.text = "Query was: \(favorite.query)"
         do {
-            let imageData = try Data(contentsOf: favorite.urlToPic)
-            savedImage.image = UIImage(contentsOfFile: favorite.urlToPic.absoluteString)
+            savedImage.image = UIImage(data: favorite.pictureData)
         } catch let error {
             print("Error with image in cell: \(error)")
             savedImage.image = UIImage(systemName: "questionmark")

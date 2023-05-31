@@ -61,11 +61,7 @@ class MainPageVC: UIViewController {
     }
     
     @objc private func favoriteButtonPressed() {
-        do {
-            try vm.addFavorite()
-        } catch let error {
-            showAlert(with: alertTitle, and: "Please try again. \nError: \(error.localizedDescription)")
-        }
+        vm.addFavorite()
     }
     
     @objc private func submitButtonPressed() {

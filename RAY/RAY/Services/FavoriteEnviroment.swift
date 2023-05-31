@@ -14,16 +14,19 @@ class FavoriteEnviroment {
     var fileService: FileSevice = .init()
     
     private var favorites: Deque<Favorite> = .init()
+    private var favoritesSet: Set<Favorite> = .init()
     private var limit = 5
     private let jsonName = "Favorites.json"
     
     private init() {}
     
     func append(favorite: Favorite) {
-        favorites.enqueueRear(favorite)
-        while favorites.size > 5 {
-            guard let item = favorites.dequeueFront() else { return }
-            fileService.deletePic(with: item.urlToPic)
+        if !favoritesSet.contains(favorite) {
+            favoritesSet.insert(favorite)
+            favorites.enqueueRear(favorite)
+            while favorites.size > 5 {
+                favorites.dequeueFront()
+            }
         }
     }
     
@@ -35,9 +38,9 @@ class FavoriteEnviroment {
         }
     }
     
-    func delete(for index: Int) throws {
-        guard let favorite = favorites.deleteElement(for: index) else { return }
-        fileService.deletePic(with: favorite.urlToPic)
+    func delete(for index: Int) {
+        guard let item = favorites.deleteElement(for: index) else { return }
+        favoritesSet.remove(item)
     }
     
     func size() -> Int {
@@ -75,6 +78,7 @@ class FavoriteEnviroment {
             
             for item in containerForLoading {
                 favorites.enqueueRear(item)
+                favoritesSet.insert(item)
             }
         } catch let error {
             print("Log error in loading & decoding data from JSON: \(error)")

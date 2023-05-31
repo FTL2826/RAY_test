@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Favorite: Codable {
+struct Favorite: Hashable, Codable {
     let query: String
-    let urlToPic: URL
+    let pictureData: Data
 }

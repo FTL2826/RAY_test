@@ -78,7 +78,8 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
             let result = vm.delete(index: indexPath.row)
             switch result {
             case .success(_):
-                tableView.reloadData()
+                tableView.deleteRows(at: [indexPath], with: .fade)
+//                tableView.reloadData()
             case .failure(let failure):
                 let ac = UIAlertController(
                     title: "Error occured!",

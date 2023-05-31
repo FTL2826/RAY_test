@@ -18,14 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         coordinator = AppCoordinator()
-        FavoriteEnviroment.instance.loadDeqFromJSON()
         coordinator?.start()
         window?.rootViewController = coordinator?.rootViewController
         window?.makeKeyAndVisible()
         return true
     }
     
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        FavoriteEnviroment.instance.loadDeqFromJSON()
+    }
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
+        FavoriteEnviroment.instance.saveDeqToJSON()
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
         FavoriteEnviroment.instance.saveDeqToJSON()
     }
 

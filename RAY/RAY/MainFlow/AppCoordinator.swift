@@ -10,13 +10,15 @@ import UIKit
 final class AppCoordinator: Coordinator {
     
     var rootViewController: UITabBarController
+    private var factory: VCFactory
     
     init() {
         self.rootViewController = UITabBarController()
+        self.factory = .init()
     }
     
     func start() {
-        let vcList: [UIViewController] = [VCFactory.createMainPage(), VCFactory.createFavouritesVC()]
+        let vcList: [UIViewController] = [factory.createMainPage(), factory.createFavouritesVC()]
         rootViewController.setViewControllers(vcList, animated: false)
     }
 }

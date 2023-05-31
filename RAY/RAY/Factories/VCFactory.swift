@@ -9,8 +9,11 @@ import UIKit
 
 final class VCFactory {
     
-    static func createMainPage() -> UIViewController {
-        let vm = MainPageViewModel(NetworkServise.instance, FileSevice())
+    func createMainPage() -> UIViewController {
+        let vm = MainPageViewModel(
+            NetworkServise.instance,
+            FileSevice(),
+            FavoriteEnviroment.instance)
         let vc = MainPageVC(vm: vm)
         vc.tabBarItem = UITabBarItem(
             title: "Generate picture",
@@ -20,7 +23,7 @@ final class VCFactory {
         return vc
     }
     
-    static func createFavouritesVC() -> UIViewController {
+    func createFavouritesVC() -> UIViewController {
         let vc = FavoritesVC()
         vc.tabBarItem = UITabBarItem(
             title: "Favorites",

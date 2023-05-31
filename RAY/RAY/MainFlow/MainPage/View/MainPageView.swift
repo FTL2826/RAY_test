@@ -33,6 +33,16 @@ final class MainPageView: UIView {
         btn.layer.cornerRadius = 16
         return btn
     }()
+    lazy var favoriteButton: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Add to favorite", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.layer.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1).cgColor
+        btn.isEnabled = false
+        btn.layer.cornerRadius = 16
+        return btn
+    }()
     lazy var imageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +52,8 @@ final class MainPageView: UIView {
         iv.layer.shadowRadius = 5
         iv.layer.shadowColor = UIColor.black.cgColor
         iv.layer.shadowOpacity = 50
+        iv.clipsToBounds = true
+        iv.contentMode = .center
         return iv
     }()
 
@@ -59,11 +71,13 @@ final class MainPageView: UIView {
     }
     
     private func setupUI() {
+        self.backgroundColor = .systemBackground
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         
         addSubview(textField)
         addSubview(submitButton)
         addSubview(imageView)
+        addSubview(favoriteButton)
         
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
@@ -80,6 +94,12 @@ final class MainPageView: UIView {
             imageView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 350),
             imageView.heightAnchor.constraint(equalToConstant: 350),
+            
+            favoriteButton.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            favoriteButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            favoriteButton.leadingAnchor.constraint(equalTo: submitButton.leadingAnchor),
+            favoriteButton.trailingAnchor.constraint(equalTo: submitButton.trailingAnchor),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 

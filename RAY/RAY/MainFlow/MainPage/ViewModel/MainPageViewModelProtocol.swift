@@ -8,7 +8,11 @@
 import Foundation
 
 protocol MainPageViewModelProtocol {
-    func submitPressed(_ text: String) -> Result<URL, MainPageViewModel.errors>
     
-    func dowloadPicture(from url: URL)
+    var pictureData: Dynamic<Data> { get }
+    var networkError: Dynamic<Error> { get }
+    
+    func submitPressed(_ text: String) -> Result<URL, MainPageViewModel.Errors>
+    func dowloadPicture(from url: URL, with text: String)
+    func addFavorite()
 }

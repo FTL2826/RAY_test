@@ -21,11 +21,16 @@ class FileSevice {
     
     func savePicToCache(_ data: Data) {
         var url = getPathToCacheDirectory()
+        url = url.appendingPathComponent("Picture", isDirectory: false)
         print(url)
         do {
             try data.write(to: url, options: .atomic)
         } catch let error {
             print(error, error.localizedDescription)
         }
+    }
+    
+    func saveFavoritePic(_ data: Data) -> URL {
+        return URL("")
     }
 }

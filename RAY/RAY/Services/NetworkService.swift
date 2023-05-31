@@ -7,10 +7,15 @@
 
 import Foundation
 
-final class NetworkServise {
+typealias NetworkCallback = ((Result<Data, Error>) -> Void)?
+
+protocol NetworkServiseProtocol {
+    func createTask(with url: URL, then callback: NetworkCallback) -> URLSessionDataTask
+}
+
+final class NetworkServise: NetworkServiseProtocol {
     
     static let instance = NetworkServise()
-    
     private var session: URLSession
     
     private init() {
@@ -22,12 +27,18 @@ final class NetworkServise {
         self.session = URLSession(configuration: configure)
     }
     
-    func createTask(with url: URL, completion: @escaping (DownloadResult) -> Void) -> URLSessionDataTask {
+    func createTask(with url: URL, then callback: NetworkCallback) -> URLSessionDataTask {
         let task = session.dataTask(with: url) { data, response, error in
-            let result = DownloadResult(data: data, response: response, error: error)
-            completion(result)
+            if let error = error {
+                print("Image download error: ", error)
+                callback?(.failure(error))
+            } else {
+                
+            }
+            if let data = data {
+                callback?(.success(data))
+            }
         }
-        task.resume()
         return task
     }
     
